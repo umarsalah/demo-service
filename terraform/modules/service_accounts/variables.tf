@@ -10,11 +10,4 @@ variable "prefix" {
     type = string
 }
 
-variable "service_accounts" {
-    type = map(object({
-        name         = string
-        display_name = string
-        roles        = map(string)
-    }))
-}
 

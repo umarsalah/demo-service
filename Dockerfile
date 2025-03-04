@@ -10,5 +10,5 @@ COPY package*.json ./
 COPY . ./
 RUN npm install --only=production
 
-CMD [ "node", "build/index.js" ]
+CMD [ "node", "build/src/index.js" ]
 

@@ -22,12 +22,13 @@ resource "google_artifact_registry_repository" "curamet-repo" {
   depends_on = [google_project_service.enabled_apis]
 }
 
-
 locals {
   // Go to: https://console.cloud.google.com/apis/library to see apis list
   enable_apis = {
     "artifactregistry.googleapis.com" = "artifactregistry.googleapis.com",
     "cloudbuild.googleapis.com"       = "cloudbuild.googleapis.com",
     "cloudRun.googleapis.com"         = "run.googleapis.com",
+    "secretmanager.googleapis.com"    = "secretmanager.googleapis.com",
+    "cloudstorage.googleapis.com"      = "storage-component.googleapis.com",
   }
 }

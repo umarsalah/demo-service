@@ -1,4 +1,3 @@
-output "instance_public_ip$END$" {
-  value       = ""                                          # The actual value to be outputted
-  description = "The public IP address of the EC2 instance" # Description of what this output represents
+output "run_service_url" {
+    value = google_cloud_run_v2_service.run_service.uri
 }

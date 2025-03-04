@@ -1,6 +1,6 @@
 export const APP_NAME = 'demo_service';
 export const PORT = 8080;
-export const DEFAULT_PROJECT = "curamet-onboarding";
+export const DEFAULT_PROJECT = 'curamet-onboarding';
 export const TIMEOUT = 60 * 10_000;
 export const JSON_BODY_MAX_SIZE = '50mb';
 export const INTERNAL_SERVER_ERROR = 'internal_server_error';

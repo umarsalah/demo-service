@@ -25,10 +25,11 @@ variable "prefix" {
   default = "dev"
 }
 
-variable "service_accounts" {
-    type = map(object({
-        name         = string
-        display_name = string
-        roles        = map(string)
-    }))
+
+variable "run_version" {
+    type = string
+}
+
+variable "run_service_name" {
+    type = string
 }

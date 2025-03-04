@@ -1,4 +1,4 @@
-output "instance_public_ip$END$" {
-  value       = ""                                          # The actual value to be outputted
-  description = "The public IP address of the EC2 instance" # Description of what this output represents
+output "repository_id" {
+  value = google_artifact_registry_repository.curamet-repo.repository_id
+  description = "Repository ID where the docker images will be stored"
 }

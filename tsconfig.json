@@ -9,5 +9,7 @@
     "sourceMap": true,
     "inlineSources": true
   },
+  "include": ["src"],
+  "exclude": ["node_modules", "**/__tests__/*"],
   "typeRoots": ["node_modules/@types", "./types"]
 }

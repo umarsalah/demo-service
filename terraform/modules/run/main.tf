@@ -1,20 +1,38 @@
-terraform {
-  required_version = ">= 1.0.0" # Ensure that the Terraform version is 1.0.0 or higher
-
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws" # Specify the source of the AWS provider
-      version = "~> 4.0"        # Use a version of the AWS provider that is compatible with version
+resource "null_resource" "run_shell_script" {
+  provisioner "local-exec" {
+    command = "./push-docker-image.sh"
+    environment = {
+      IMAGE_URL  = local.image_url
     }
   }
-}
 
-provider "aws" {
-  region = "us-east-1" # Set the AWS region to US East (N. Virginia)
-}
-
-resource "aws_instance" "aws_example$END$" {
-  tags = {
-    Name = "ExampleInstance" # Tag the instance with a Name tag for easier identification
+  triggers = {
+    version = var.run_version
   }
+}
+
+resource "google_cloud_run_v2_service" "run_service" {
+  deletion_protection = false
+  name = "${var.prefix}-${var.run_service_name}"
+  location = var.region
+  template {
+      containers {
+        image = local.image_url
+        env {
+          name = "BUCKET_NAME"
+          value = var.bucket_name
+        }
+        env {
+          name = "SECRET_NAME"
+          value = var.secret_name
+        }
+      }
+       service_account = var.service_account
+  }
+  depends_on = [null_resource.run_shell_script]
+}
+
+
+locals {
+  image_url = "europe-docker.pkg.dev/${var.project}/${var.repository_id}/${var.prefix}-${var.run_service_name}:${var.run_version}"
 }

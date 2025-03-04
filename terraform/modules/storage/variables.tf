@@ -1,5 +1,15 @@
-variable "instance_type$END$" {
-  type        = string                     # The type of the variable, in this case a string
-  default     = "t2.micro"                 # Default value for the variable
-  description = "The type of EC2 instance" # Description of what this variable represents
+variable "project" {
+  type = string
+}
+
+variable "prefix" {
+  type = string
+}
+
+variable "region" {
+  type = string
+}
+
+variable "runner_service_account" {
+  type = string
 }
