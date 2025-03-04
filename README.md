@@ -44,7 +44,8 @@ This file contains global variables used throughout the project, including the p
 
 
 ###### important variables in the terraform.tfvars file:
-- **version**: Changing the version in the **terraform.tfvars** file  informs Terraform that a new version of the Cloud Run service (located in the /src directory) should be deployed.
+- **version**: Changing the version in the **terraform.tfvars** file  informs Terraform that a new version of the Cloud Run service (located in the /src directory) should be deployed. <br>
+  **Note**: Only update the version number when changes are made in the **/src** directory, not for infrastructure-only changes.
 - **prefix**:  This is used to prefix all resources created by Terraform to avoid naming conflicts when multiple users try this service.
 
 
