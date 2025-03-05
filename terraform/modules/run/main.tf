@@ -26,6 +26,10 @@ resource "google_cloud_run_v2_service" "run_service" {
           name = "SECRET_NAME"
           value = var.secret_name
         }
+        env {
+          name = "PROJECT_ID"
+          value = var.project
+        }
       }
        service_account = var.service_account
   }
