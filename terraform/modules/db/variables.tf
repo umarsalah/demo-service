@@ -1,48 +1,12 @@
 variable "project" {
   type = string
 }
+
 variable "region" {
-  type    = string
-  default = "europe-west1"
-}
-
-variable "project_number" {
   type = string
-}
-
-variable "location" {
-  type    = string
-  default = "EU"
-}
-
-variable "envname" {
-  type    = string
-  default = "dev"
 }
 
 variable "prefix" {
-  type    = string
-  default = "dev"
-}
-
-
-variable "run_version" {
-  type = string
-}
-
-variable "run_service_name" {
-  type = string
-}
-
-variable "github_oauth_token_secret_version" {
-  type = string
-}
-
-variable "github_app_installation_id" {
-  type = string
-}
-
-variable "repo_name" {
   type = string
 }
 
